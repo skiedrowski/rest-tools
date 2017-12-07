@@ -3,6 +3,7 @@
 ## V0.2
 * CHANGE: AuthenticationExceptionMapper: allow config of user-realm name
 * CHANGE: @HTTPBasic qualifier removed. Also removed interfaces (as long as there are no alternatives)
+* CHANGE: Extract concrete authentication into separate class
 * BUGFIX: add beans.xml
 
 ## V0.1

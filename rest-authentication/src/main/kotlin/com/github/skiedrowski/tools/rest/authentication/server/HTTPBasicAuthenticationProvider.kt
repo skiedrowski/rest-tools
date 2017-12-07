@@ -1,12 +1,13 @@
 package com.github.skiedrowski.tools.rest.authentication.server
 
 import com.github.skiedrowski.tools.rest.authentication.AuthenticationException
+import javax.enterprise.inject.Instance
 import javax.inject.Inject
 import javax.ws.rs.container.ContainerRequestContext
 import javax.xml.bind.DatatypeConverter
 
 class HTTPBasicAuthenticationProvider @Inject constructor(
-        private val authenticator: Authenticator) {
+        private val authenticator: Instance<Authenticator>) {
 
     fun authenticateUser(requestContext: ContainerRequestContext): AuthenticatedUserInfo {
         val authorizationHeader = requestContext.getHeaderString("Authorization")
@@ -28,7 +29,7 @@ class HTTPBasicAuthenticationProvider @Inject constructor(
         }
         val (user, password) = decodedAuth.split(":")
 
-        val valid = authenticator.authenticate(user, password)
+        val valid = authenticator.get().authenticate(user, password)
 
         if (valid) {
             return AuthenticatedUserInfo(user)

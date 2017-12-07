@@ -1,9 +1,5 @@
     WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING W
     W																														W
-    W   The current implementation stores users and passwords in a plaintext file, so it is _not_ advisable to use this in  W
-    W   production-like environments. It is planned to hash the passwords. If a different `AuthenticationProvider` is 		W
-    W   provided, a database, LDAP or whatever might be used.																W
-    W																														W
     W   Be warned that using Basic authentication does not provide any encryption. You need some sort of transport 		    W
     W   encryption!																										    W
     W																														W
@@ -26,8 +22,8 @@ published in my bintray repo
 Bintray file upload path: `com/github/skiedrowski/tools/rest-authentication/VERSION`
 
 ## Customization Points
-* `AuthenticationProvider`: authentication mechanism (Basic, Digest, ...) and authentication backend (database, LDAP, ...)
-  * There is one implementation `HTTPBasicAuthenticationProvider` using a properties file for user/passwords.
+* `AuthenticationProvider`: authentication mechanism (Basic, Digest, ...) 
+  * There is one implementation `HTTPBasicAuthenticationProvider` 
 * `AuthenticationExceptionMapper`: Realm Name (for displaying to the user) should be provided in a `config.properties` 
 	file (working dir or specified via SystemProperty) with key `www_authenticate_realm_name`. See `cdi-properties` project for details.
 

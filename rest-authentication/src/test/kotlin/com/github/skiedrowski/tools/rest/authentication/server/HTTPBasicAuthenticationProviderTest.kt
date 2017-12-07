@@ -8,6 +8,7 @@ import com.nhaarman.mockito_kotlin.mock
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.ExpectedException
+import javax.enterprise.inject.Instance
 import javax.ws.rs.container.ContainerRequestContext
 import javax.xml.bind.DatatypeConverter
 
@@ -17,10 +18,13 @@ class HTTPBasicAuthenticationProviderTest {
     @Rule
     val thrown: ExpectedException = ExpectedException.none()
 
-    private val authenticator = mock<Authenticator> {
-        on { this.authenticate("peter", "petersPassword") } doReturn true
+    private val authenticatorInstance = mock<Instance<Authenticator>> {
+        val authenticator = mock<Authenticator> {
+            on { this.authenticate("peter", "petersPassword") } doReturn true
+        }
+        on { get() } doReturn authenticator
     }
-    private val authenticationProvider = HTTPBasicAuthenticationProvider(authenticator)
+    private val authenticationProvider = HTTPBasicAuthenticationProvider(authenticatorInstance)
 
     @Test
     fun `valid peter`() {
