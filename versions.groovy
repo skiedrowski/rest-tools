@@ -4,7 +4,7 @@ javax_annotation = '1.2' //Java EE 7
 javax_xml_bind = '2.2.12' //Java EE 7
 
 kt_tools = '0.2'
-cdi_properties = '0.2'
+cdi_properties = '0.3'
 
 //test
 junit = '4.+'

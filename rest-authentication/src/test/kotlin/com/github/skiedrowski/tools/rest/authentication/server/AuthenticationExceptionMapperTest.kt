@@ -14,10 +14,10 @@ class AuthenticationExceptionMapperTest {
         val ex = mock<AuthenticationException> {
             on { message } doReturn "message"
         }
-        val response = AuthenticationExceptionMapper().toResponse(ex)
+        val response = AuthenticationExceptionMapper("my realm").toResponse(ex)
 
         assertThat(response.status, equalTo(Response.Status.UNAUTHORIZED.statusCode))
         assertThat(response.getHeaderString("cause"), equalTo("Authorization error: message"))
-        assertThat(response.getHeaderString("WWW-Authenticate"), equalTo("Basic realm=\"???\""))
+        assertThat(response.getHeaderString("WWW-Authenticate"), equalTo("Basic realm=\"my realm\""))
     }
 }
