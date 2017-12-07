@@ -5,11 +5,9 @@ import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.equalTo
 import com.nhaarman.mockito_kotlin.doReturn
 import com.nhaarman.mockito_kotlin.mock
-import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.ExpectedException
-import java.util.*
 import javax.ws.rs.container.ContainerRequestContext
 import javax.xml.bind.DatatypeConverter
 
@@ -19,17 +17,14 @@ class HTTPBasicAuthenticationProviderTest {
     @Rule
     val thrown: ExpectedException = ExpectedException.none()
 
-    private lateinit var authenticationProvider: HTTPBasicAuthenticationProvider
-
-    @Before
-    fun context() {
-        val properties = Properties()
-        properties["peter"] = "petersPassword"
-        authenticationProvider = HTTPBasicAuthenticationProvider(properties)
+    private val authenticator = mock<Authenticator> {
+        on { this.authenticate("peter", "petersPassword") } doReturn true
     }
+    private val authenticationProvider = HTTPBasicAuthenticationProvider(authenticator)
 
     @Test
     fun `valid peter`() {
+
         val requestContext = mock<ContainerRequestContext> {
             on { getHeaderString("Authorization") } doReturn "Basic cGV0ZXI6cGV0ZXJzUGFzc3dvcmQ="
         }

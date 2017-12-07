@@ -1,13 +1,11 @@
 package com.github.skiedrowski.tools.rest.authentication.client
 
-import com.github.skiedrowski.tools.rest.authentication.HTTPBasic
 import javax.annotation.Priority
 import javax.ws.rs.Priorities
 import javax.ws.rs.client.ClientRequestContext
 import javax.xml.bind.DatatypeConverter
 
 @Priority(Priorities.AUTHENTICATION)
-@HTTPBasic
 class HTTPBasicAuthenticator(private val user: String, private val password: String) : Authenticator {
 
     private fun getBasicAuthentication(): String {

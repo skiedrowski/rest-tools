@@ -10,7 +10,7 @@ import javax.ws.rs.container.ResourceInfo
 import javax.ws.rs.core.FeatureContext
 
 class AuthenticationFeatureTest {
-    private val authenticationProvider = mock<AuthenticationProvider>()
+    private val authenticationProvider = mock<HTTPBasicAuthenticationProvider>()
     private val feature = AuthenticationFeature(authenticationProvider)
 
     @Test

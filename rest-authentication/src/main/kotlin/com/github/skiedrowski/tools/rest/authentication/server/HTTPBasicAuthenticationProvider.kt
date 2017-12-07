@@ -1,18 +1,14 @@
 package com.github.skiedrowski.tools.rest.authentication.server
 
-import com.github.skiedrowski.tools.cdiproperties.PropertiesFromFile
 import com.github.skiedrowski.tools.rest.authentication.AuthenticationException
-import com.github.skiedrowski.tools.rest.authentication.HTTPBasic
-import java.util.*
 import javax.inject.Inject
 import javax.ws.rs.container.ContainerRequestContext
 import javax.xml.bind.DatatypeConverter
 
-@HTTPBasic
 class HTTPBasicAuthenticationProvider @Inject constructor(
-        @param:PropertiesFromFile("users.properties") private val users: Properties) : AuthenticationProvider {
+        private val authenticator: Authenticator) {
 
-    override fun authenticateUser(requestContext: ContainerRequestContext): AuthenticatedUserInfo {
+    fun authenticateUser(requestContext: ContainerRequestContext): AuthenticatedUserInfo {
         val authorizationHeader = requestContext.getHeaderString("Authorization")
 
         authorizationHeader ?: throw AuthenticationException("no authorization header")
@@ -32,8 +28,7 @@ class HTTPBasicAuthenticationProvider @Inject constructor(
         }
         val (user, password) = decodedAuth.split(":")
 
-        //TODO use a password hash!!!
-        val valid = users[user] == password
+        val valid = authenticator.authenticate(user, password)
 
         if (valid) {
             return AuthenticatedUserInfo(user)

@@ -7,7 +7,7 @@ import org.junit.Test
 import javax.ws.rs.container.ContainerRequestContext
 
 class AuthenticationFilterTest {
-    private val authenticationProvider = mock<AuthenticationProvider>()
+    private val authenticationProvider = mock<HTTPBasicAuthenticationProvider>()
     private val authenticationFilter = AuthenticationFilter(authenticationProvider)
 
     @Test
