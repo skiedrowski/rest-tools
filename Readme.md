@@ -19,7 +19,9 @@ published in my bintray repo
      	compile "com.github.skiedrowski.tools.rest:rest-authentication:$ver.rest_tools"
     }
 
-Bintray file upload path: `com/github/skiedrowski/tools/rest/rest-authentication/VERSION`
+Bintray file upload path: 
+`com/github/skiedrowski/tools/rest/MODULE_NAME/VERSION`
+`com/github/skiedrowski/tools/rest/rest-authentication/VERSION`
 
 ## Customization Points
 * `AuthenticationProvider`: authentication mechanism (Basic, Digest, ...) 
