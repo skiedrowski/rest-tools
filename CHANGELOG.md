@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## V0.4
+* CHANGE: new cdi-properties version
+
 ## V0.3
 * CHANGE: refactor maven group and project name for better gradle-composite builds integration
 * CHANGE: AuthenticationUserInfo is now a data class

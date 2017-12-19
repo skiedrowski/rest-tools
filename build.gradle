@@ -34,7 +34,7 @@ subprojects {
 		}
 	}
 
-	version = '0.3'
+	version = '0.4'
 	group = "com.github.skiedrowski.tools.rest"
 
 	repositories {
@@ -45,7 +45,7 @@ subprojects {
 	dependencies {
 		compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 		compile "com.github.skiedrowski.tools:kotlin-tools:$ver.kt_tools"
-		compile "com.github.skiedrowski.tools:cdi-properties:$ver.cdi_properties"
+		compile "com.github.skiedrowski.tools.cdi:cdi-properties:$ver.cdi_properties"
 		compileOnly "javax.enterprise:cdi-api:$ver.cdi_api"
 		compileOnly "javax.ws.rs:javax.ws.rs-api:$ver.jaxrs_api"
 		compileOnly "javax.annotation:javax.annotation-api:$ver.javax_annotation"
