@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## V0.3
+* CHANGE: refactor maven group and project name for better gradle-composite builds integration
+* CHANGE: AuthenticationUserInfo is now a data class
+
 ## V0.2
 * CHANGE: AuthenticationExceptionMapper: allow config of user-realm name
 * CHANGE: @HTTPBasic qualifier removed. Also removed interfaces (as long as there are no alternatives)
