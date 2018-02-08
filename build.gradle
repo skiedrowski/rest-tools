@@ -10,7 +10,7 @@ buildscript {
 	}
 }
 
-description = """cdi-properties allows injecting of properties via CDI"""
+description = """REST tools"""
 
 def buildscriptDir = "$rootProject.projectDir/buildscripts"
 
