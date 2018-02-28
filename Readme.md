@@ -47,7 +47,7 @@ The client side part is inspired by http://www.adam-bien.com/roller/abien/entry/
 `Authenticator` is a JAX-RS `ClientRequestFilter` which may be used to provide credentials to the server.
 
 ## Limitations
-* Basic Authentication does not provide encryption, so you need to encrypt the data (i.e. using HTTP)
+* Basic Authentication does not provide encryption, so you need to encrypt the data (i.e. using HTTPS)
 * The challenge-response mechanism using `WWW-Authenticate` is untested.
 
 ## Links
