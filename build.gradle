@@ -34,8 +34,8 @@ subprojects {
 		}
 	}
 
-//	version = '0.4'
-	version = 'NEXT-SNAPSHOT'
+	version = '20190311'
+//	version = 'NEXT-SNAPSHOT'
 	group = "com.github.skiedrowski.tools.rest"
 
 	repositories {
