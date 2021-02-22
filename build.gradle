@@ -40,7 +40,13 @@ subprojects {
 
 	repositories {
 		mavenCentral()
-		maven { url "https://dl.bintray.com/skiedrowski/maven" }
+		maven {
+			url "https://dl.bintray.com/skiedrowski/maven"
+			//TODO
+			// several skiedrowski artifacts did not publish metadata in "maven pom" format, which forces the following
+			// declaration since Gradle 6.x
+			metadataSources { mavenPom(); artifact() }
+		}
 	}
 
 	dependencies {
