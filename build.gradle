@@ -13,7 +13,6 @@ plugins {
 	id("maven-publish")
 }
 
-
 description = """REST tools"""
 
 def buildscriptDir = "$rootProject.projectDir/buildscripts"
@@ -38,25 +37,25 @@ subprojects {
 		}
 	}
 
-//	version = '20190311'
+//	version = '20210222'
 	version = 'NEXT-SNAPSHOT'
 	group = "com.github.skiedrowski.tools.rest"
 
 	repositories {
 		mavenCentral()
 		maven {
-			url "https://dl.bintray.com/skiedrowski/maven"
-			//TODO
-			// several skiedrowski artifacts did not publish metadata in "maven pom" format, which forces the following
-			// declaration since Gradle 6.x
-			metadataSources { mavenPom(); artifact() }
+			url "https://maven.pkg.github.com/${System.getProperty('GH_USERNAME')}/${project.rootProject.name}"
+			credentials {
+				username System.getProperty('GH_USERNAME')
+				password System.getProperty('GH_TOKEN')
+			}
 		}
 	}
 
 	dependencies {
 		compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 		compile "com.github.skiedrowski.tools:kotlin-tools:$ver.kt_tools"
-		compile "com.github.skiedrowski.tools.cdi:cdi-properties:$ver.cdi_properties"
+		compile "com.github.skiedrowski.tools.cdi:cdi-tools:$ver.cdi_tools"
 		compileOnly "javax.enterprise:cdi-api:$ver.cdi_api"
 		compileOnly "javax.ws.rs:javax.ws.rs-api:$ver.jaxrs_api"
 		compileOnly "javax.annotation:javax.annotation-api:$ver.javax_annotation"

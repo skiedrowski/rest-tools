@@ -9,19 +9,15 @@
 # Authentication JAX-RS 2.x
 This package includes server-side and client-side code for HTTP-Basic authentication using JAX-RS 2.x filters.
 
-published in my bintray repo
+published in my github packages repo
 
 	repositories {
-    	maven { url "https://dl.bintray.com/skiedrowski/maven" }
+    	maven { url "https://maven.pkg.github.com/skiedrowski/rest-tools" }
     }
     	
     dependencies {
      	compile "com.github.skiedrowski.tools.rest:rest-authentication:$ver.rest_tools"
     }
-
-Bintray file upload path: 
-`com/github/skiedrowski/tools/rest/MODULE_NAME/VERSION`
-`com/github/skiedrowski/tools/rest/rest-authentication/VERSION`
 
 ## Customization Points
 * `AuthenticationProvider`: authentication mechanism (Basic, Digest, ...) 
