@@ -10,22 +10,13 @@ import javax.ws.rs.core.MultivaluedMap
 class HTTPBasicAuthenticatorTest {
     @Test
     fun `filter adds sensible Authorization header`() {
-//        val authenticator = HTTPBasicAuthenticator("peter", "petersPassword")
-//
-//        val headers = mock<MultivaluedMap<String, Any>>()
-//        val requestContext = mock<ClientRequestContext> {
-//            on {this.headers} doReturn headers
-//        }
-//        authenticator.filter(requestContext)
-//        
-//        verify(headers).add("Authorization", "Basic cGV0ZXI6cGV0ZXJzUGFzc3dvcmQ=")
         checkAuthHeader("peter", "petersPassword", "Basic cGV0ZXI6cGV0ZXJzUGFzc3dvcmQ=")
     }
 
     @Test
     fun `filter adds sensible Authorization header 2`() {
-        checkAuthHeader("mauveS3", "bmx\$2+0-1=1,oder?", "Basic bWF1dmVTMzpibXgkMiswLTE9MSxvZGVyPw==")
-        checkAuthHeader("mauveS3", "mauveS3-test", "Basic bWF1dmVTMzptYXV2ZVMzLXRlc3Q=")
+        checkAuthHeader("S3", "hansS3-dummy", "Basic UzM6aGFuc1MzLWR1bW15")
+        checkAuthHeader("S3", "hansS3-test", "Basic UzM6aGFuc1MzLXRlc3Q=")
     }
 
     private fun checkAuthHeader(username: String, password: String, expHeaderValue: String) {
