@@ -1,23 +1,22 @@
 package com.github.skiedrowski.tools.rest.authentication.server
 
 import com.github.skiedrowski.tools.rest.authentication.AuthenticationException
-import com.natpryce.hamkrest.assertion.assertThat
-import com.natpryce.hamkrest.equalTo
-import com.nhaarman.mockito_kotlin.doReturn
-import com.nhaarman.mockito_kotlin.mock
-import org.junit.Test
+import io.kotest.matchers.shouldBe
+import io.mockk.every
+import io.mockk.mockk
+import org.junit.jupiter.api.Test
 import javax.ws.rs.core.Response
 
 class AuthenticationExceptionMapperTest {
     @Test
     fun toResponse() {
-        val ex = mock<AuthenticationException> {
-            on { message } doReturn "message"
+        val ex = mockk<AuthenticationException> {
+            every { message } returns "message"
         }
         val response = AuthenticationExceptionMapper("my realm").toResponse(ex)
 
-        assertThat(response.status, equalTo(Response.Status.UNAUTHORIZED.statusCode))
-        assertThat(response.getHeaderString("cause"), equalTo("Authorization error: message"))
-        assertThat(response.getHeaderString("WWW-Authenticate"), equalTo("Basic realm=\"my realm\""))
+        response.status shouldBe Response.Status.UNAUTHORIZED.statusCode
+        response.getHeaderString("cause") shouldBe "Authorization error: message"
+        response.getHeaderString("WWW-Authenticate") shouldBe "Basic realm=\"my realm\""
     }
 }

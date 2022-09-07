@@ -1,9 +1,10 @@
 package com.github.skiedrowski.tools.rest.authentication.client
 
-import com.nhaarman.mockito_kotlin.doReturn
-import com.nhaarman.mockito_kotlin.mock
-import com.nhaarman.mockito_kotlin.verify
-import org.junit.Test
+import com.github.skiedrowski.tools.test.rxMockk
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.verify
+import org.junit.jupiter.api.Test
 import javax.ws.rs.client.ClientRequestContext
 import javax.ws.rs.core.MultivaluedMap
 
@@ -27,13 +28,12 @@ class HTTPBasicAuthenticatorTest {
     private fun checkAuthHeader(username: String, password: String, expHeaderValue: String) {
         val authenticator = HTTPBasicAuthenticator(username, password)
 
-        val headers = mock<MultivaluedMap<String, Any>>()
-        val requestContext = mock<ClientRequestContext> {
-            on { this.headers } doReturn headers
-        }
+        val headers = rxMockk<MultivaluedMap<String, Any>>()
+        val requestContext = rxMockk<ClientRequestContext>()
+        every { requestContext.headers } returns headers
         authenticator.filter(requestContext)
 
-        verify(headers).add("Authorization", expHeaderValue)
+        verify { headers.add("Authorization", expHeaderValue) }
     }
 
 }
