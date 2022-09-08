@@ -1,7 +1,7 @@
 //define prior to mvnpublish plugin config!
 group = "com.github.skiedrowski.tools.rest"
-version = "NEXT-SNAPSHOT"
-//version = "20220905"
+//version = "NEXT-SNAPSHOT"
+version = "20220905"
 
 plugins {
     id("aspect.java11")

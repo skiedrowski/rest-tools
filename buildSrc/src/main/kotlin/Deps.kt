@@ -6,7 +6,7 @@ object Ver {
     const val javax_xml_bind = "2.2.12" //Java EE 8
 
     const val kt_tools = "20220905"
-    const val cdi_tools = "20210222"
+    const val cdi_tools = "20220905"
 
     //test
     const val junit = "5.8.+"
@@ -18,7 +18,7 @@ object Ver {
 object Deps {
     const val kt_stdlib_jdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Ver.kotlin}"
     const val kt_tools = "com.github.skiedrowski.tools:kotlin-tools:${Ver.kt_tools}"
-    const val cdi_tools = "com.github.skiedrowski.tools.cdi:cdi-tools:${Ver.cdi_tools}"
+    const val cdi_tools = "com.github.skiedrowski.tools.cdi:cdi-properties:${Ver.cdi_tools}"
 
     const val cdi_api = "javax.enterprise:cdi-api:${Ver.cdi_api}"
     const val jaxrs_api = "javax.ws.rs:javax.ws.rs-api:${Ver.jaxrs_api}"

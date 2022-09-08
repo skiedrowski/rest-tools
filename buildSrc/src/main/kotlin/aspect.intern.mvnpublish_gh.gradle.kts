@@ -44,9 +44,6 @@ configure<PublishingExtension> {
         }
     }
 
-    println("GH_U" + System.getProperty("GH_USERNAME"))
-    println("GH_T" + System.getProperty("GH_TOKEN"))
-
     repositories {
         maven {
             name = "GitHubPackages"
