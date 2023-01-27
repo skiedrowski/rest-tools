@@ -1,9 +1,9 @@
 package com.github.skiedrowski.tools.rest.authentication.client
 
-import javax.annotation.Priority
-import javax.ws.rs.Priorities
-import javax.ws.rs.client.ClientRequestContext
-import javax.xml.bind.DatatypeConverter
+import jakarta.annotation.Priority
+import jakarta.ws.rs.Priorities
+import jakarta.ws.rs.client.ClientRequestContext
+import jakarta.xml.bind.DatatypeConverter
 
 @Priority(Priorities.AUTHENTICATION)
 class HTTPBasicAuthenticator(private val user: String, private val password: String) : Authenticator {

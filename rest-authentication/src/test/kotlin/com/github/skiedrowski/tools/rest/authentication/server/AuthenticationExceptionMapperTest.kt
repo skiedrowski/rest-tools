@@ -5,7 +5,7 @@ import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.Test
-import javax.ws.rs.core.Response
+import jakarta.ws.rs.core.Response
 
 class AuthenticationExceptionMapperTest {
     @Test

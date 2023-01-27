@@ -1,7 +1,7 @@
 //define prior to mvnpublish plugin config!
 group = "com.github.skiedrowski.tools.rest"
 //version = "NEXT-SNAPSHOT"
-version = "20220905"
+version = "20220905-jee10"
 
 plugins {
     id("aspect.java11")
@@ -12,8 +12,8 @@ plugins {
     id("aspect.intern.sourcejar")
     id("aspect.intern.testjar")
     id("aspect.intern.javadocjar")
-    id("aspect.intern.mvnpublish")
-//    id("aspect.intern.mvnpublish_gh")
+//    id("aspect.intern.mvnpublish")
+    id("aspect.intern.mvnpublish_gh")
 }
 
 val config = rootProject.extra["config"] as Map<String, *>
@@ -33,10 +33,10 @@ dependencies {
     implementation(Deps.kt_tools)
     implementation(Deps.cdi_tools)
 
-    compileOnly(Deps.cdi_api)
-    compileOnly(Deps.jaxrs_api)
-    compileOnly(Deps.javax_annotation)
-    compileOnly(Deps.javax_xml_bind)
+    compileOnly(Deps.j_cdi_api)
+    compileOnly(Deps.j_ws_rs_api)
+    compileOnly(Deps.j_annotation_api)
+    compileOnly(Deps.j_xml_bind_api)
 
     testFixturesApi(Deps.junit)
     testFixturesApi(Deps.junit_engine)

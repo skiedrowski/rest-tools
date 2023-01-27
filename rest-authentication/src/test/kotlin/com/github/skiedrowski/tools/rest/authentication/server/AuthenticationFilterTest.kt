@@ -4,7 +4,7 @@ import com.github.skiedrowski.tools.test.rxMockk
 import io.mockk.every
 import io.mockk.verify
 import org.junit.jupiter.api.Test
-import javax.ws.rs.container.ContainerRequestContext
+import jakarta.ws.rs.container.ContainerRequestContext
 
 class AuthenticationFilterTest {
 

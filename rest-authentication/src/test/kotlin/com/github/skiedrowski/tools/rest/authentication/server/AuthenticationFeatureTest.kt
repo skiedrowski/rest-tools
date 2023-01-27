@@ -6,8 +6,8 @@ import io.kotest.matchers.types.shouldBeSameInstanceAs
 import io.mockk.*
 import org.junit.jupiter.api.Test
 import java.lang.reflect.Method
-import javax.ws.rs.container.ResourceInfo
-import javax.ws.rs.core.FeatureContext
+import jakarta.ws.rs.container.ResourceInfo
+import jakarta.ws.rs.core.FeatureContext
 
 class AuthenticationFeatureTest {
     private val authenticationProvider = mockk<HTTPBasicAuthenticationProvider>()

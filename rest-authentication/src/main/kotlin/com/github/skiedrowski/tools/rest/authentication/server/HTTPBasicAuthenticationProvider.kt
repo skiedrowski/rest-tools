@@ -1,10 +1,10 @@
 package com.github.skiedrowski.tools.rest.authentication.server
 
 import com.github.skiedrowski.tools.rest.authentication.AuthenticationException
-import javax.enterprise.inject.Instance
-import javax.inject.Inject
-import javax.ws.rs.container.ContainerRequestContext
-import javax.xml.bind.DatatypeConverter
+import jakarta.enterprise.inject.Instance
+import jakarta.inject.Inject
+import jakarta.ws.rs.container.ContainerRequestContext
+import jakarta.xml.bind.DatatypeConverter
 
 class HTTPBasicAuthenticationProvider @Inject constructor(
         private val authenticator: Instance<Authenticator>) {

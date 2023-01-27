@@ -2,11 +2,10 @@ package com.github.skiedrowski.tools.rest.authentication.client
 
 import com.github.skiedrowski.tools.test.rxMockk
 import io.mockk.every
-import io.mockk.mockk
 import io.mockk.verify
 import org.junit.jupiter.api.Test
-import javax.ws.rs.client.ClientRequestContext
-import javax.ws.rs.core.MultivaluedMap
+import jakarta.ws.rs.client.ClientRequestContext
+import jakarta.ws.rs.core.MultivaluedMap
 
 class HTTPBasicAuthenticatorTest {
     @Test

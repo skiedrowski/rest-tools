@@ -7,9 +7,9 @@ import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
-import javax.enterprise.inject.Instance
-import javax.ws.rs.container.ContainerRequestContext
-import javax.xml.bind.DatatypeConverter
+import jakarta.enterprise.inject.Instance
+import jakarta.ws.rs.container.ContainerRequestContext
+import jakarta.xml.bind.DatatypeConverter
 
 class HTTPBasicAuthenticationProviderTest {
 
