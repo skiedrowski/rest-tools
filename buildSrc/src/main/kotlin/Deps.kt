@@ -6,7 +6,7 @@ object Ver {
     const val j_xml_bind_api = "4.0.0"
 
     const val kt_tools = "20220905"
-    const val cdi_tools = "20220905-jee10"
+    const val cdi_tools = "20220905.3-jee10"
 
     //test
     const val junit = "5.8.+"
