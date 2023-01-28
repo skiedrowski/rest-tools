@@ -1,3 +1,9 @@
+>
+> This repo is superseded by skiedrowski/sktooling containing the Jakarta EE 10 version.
+>
+> The `main` branch will still be maintained for JavaEE 8
+>
+
     WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING W
     W																														W
     W   Be warned that using Basic authentication does not provide any encryption. You need some sort of transport 		    W
